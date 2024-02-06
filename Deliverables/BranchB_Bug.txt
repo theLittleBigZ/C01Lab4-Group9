@@ -1,0 +1,5 @@
+There was a bug with the deleteNote functionality the issue was caused by 2 files App.js and Server.js, 
+
+ - App.js: there was an issue where the UI would update before confirming that the note was deleted in the backend was fixed in commit 962319240dcf373d4fa8b61df00f00b72b757047
+
+ - Server.js there was an issue where deleteNote was not implemented was fixed in commit 932139a976cee9f89a7ebe4f6c097bc68837ec97
