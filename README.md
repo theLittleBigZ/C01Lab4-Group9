@@ -1,4 +1,4 @@
-# <span style="color:#ADD8E6"> Lab4 - Advanced Git Usage </span>
+# <span style="color:#ADD8E6"> Lab4 Group 9</span>
 
 <div align="right"> </div>
 
