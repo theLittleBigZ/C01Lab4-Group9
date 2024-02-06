@@ -27,6 +27,7 @@ const NoteStyle = {
       padding: '20px',
       margin: '20px',
       width: '200px',
+      backgroundColor: 'orange',
       borderStyle: 'dotted',
       borderRadius: '30px',
       borderWidth: 'thin',
