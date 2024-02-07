@@ -35,4 +35,4 @@
 - [ ] Clean up repo / Make sure code is working
 - [x] Approve PR feat/A_ColorCoding -> devel
 - [ ] Approve PR feat/C_SearchNotes -> devel
-- [ ] Git workflow diagram
+- [x] Git workflow diagram
