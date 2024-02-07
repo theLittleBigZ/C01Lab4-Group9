@@ -1,31 +1,38 @@
 # Tasks:
 
 ## Clare Zhu (person 5):
-- [ ] thing 1
-- [ ] thing 2
-- [ ] thing 3
+- [x] Create a pull resquest template (worked with person 6)
+- [x] Create a PR for feat/A_ColorCoding -> devel
+- [x] Merge branches
 
 ## Gelila Samuel (person 3):
-- [ ] thing 1
-- [ ] thing 2
-- [ ] thing 3
+- [ ] Create a branch off devel called feat/C_SearchNotes
+- [ ] Develop feature and commit
+- [ ] Rebase branch feat/D_InsertDate into feat/C_SearchNotes
 
 ## Henie Patel (person 4):
-- [ ] thing 1
-- [ ] thing 2
-- [ ] thing 3
+- [x] Create a branch off devel called feat/D_InsertDate
+- [x] Develop feature and commit
+- [x] push commit alert person 3
 
 ## Jasjot Benipal (person 6):
-- [ ] thing 1
-- [ ] thing 2
-- [ ] thing 3
+- [x] Create a pull resquest template (worked with person 5)
+- [ ] Create a PR for feat/C_SearchNotes -> devel
+- [ ] Merge branches
 
 ## Yann Gbaguidi (person 1):
-- [ ] thing 1
-- [ ] thing 2
-- [ ] thing 3
+- [x] Create a branch off devel called feat/A_ColorCoding
+- [x] Develop feature and commit
+- [x] cherry pick first and last commit from bugfix/B_Delete
 
 ## Zeeshan Badr (person 2):
-- [ ] thing 1
-- [ ] thing 2
-- [ ] thing 3
+- [x] Create a branch off devel called bugfix/B_Delete
+- [x] Identify and fix the bug then commit
+- [x] Change note background color
+- [x] create and commit bugfix.txt
+
+## As a Team: 
+- [ ] Clean up repo / Make sure code is working
+- [x] Approve PR feat/A_ColorCoding -> devel
+- [ ] Approve PR feat/C_SearchNotes -> devel
+- [ ] Git workflow diagram
