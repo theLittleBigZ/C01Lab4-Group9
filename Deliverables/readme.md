@@ -6,9 +6,9 @@
 - [x] Merge branches
 
 ## Gelila Samuel (person 3):
-- [ ] Create a branch off devel called feat/C_SearchNotes
-- [ ] Develop feature and commit
-- [ ] Rebase branch feat/D_InsertDate into feat/C_SearchNotes
+- [x] Create a branch off devel called feat/C_SearchNotes
+- [x] Develop feature and commit
+- [x] Rebase branch feat/D_InsertDate into feat/C_SearchNotes
 
 ## Henie Patel (person 4):
 - [x] Create a branch off devel called feat/D_InsertDate
