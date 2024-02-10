@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import './App.css';
 import Dialog from "./Dialog";
 import Note from "./Note";
+import NoteSearch from "./NoteSearch";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
   // -- Dialog props-- 
   const [dialogOpen, setDialogOpen] = useState(false)
   const [dialogNote, setDialogNote] = useState(null)
-
+  const [searchQuery, setSearchQuery] = useState("");
   
   // -- Database interaction functions --
   useEffect(() => {
@@ -39,28 +40,21 @@ function App() {
   }, [])
 
   const deleteNote = async (entry) => {
+    deleteNoteState(entry._id);
+
     try {
-      await fetch(`http://localhost:4000/deleteNote/${entry._id}`, {
+      const response = await fetch(`http://localhost:4000/deleteNote/${entry._id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         },
-      })
-      .then(async (response) => {
-        if (!response.ok) {
-          console.log("Served failed:", response.status)
-          alert("Failed to delete note!")
-        } else {
-            await response.json().then(() => {
-            deleteNoteState(entry._id)
-        }) 
-        }
-      })
+      });
+  
+      if (!response.ok) {
+        console.log("Server failed to delete the note:", response.status);
+      }
     } catch (error) {
-      console.log("Delete function failed:", error)
-      alert("Failed to delete note!")
-    } finally {
-      setLoading(false)
+      console.error("Delete function failed:", error);
     }
   }
 
@@ -136,32 +130,12 @@ function App() {
     }))
   }
 
-  
-  const onChangeColor = async (noteId, color) => {
-    try {
-      const response = await fetch(`http://localhost:4000/updateNoteColor/${noteId}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ color }),
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to update note color');
-      }
-  
-      setNotes((prevNotes) =>
-        prevNotes.map((note) =>
-          note._id === noteId ? { ...note, color: color } : note
-        )
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-
+  const filteredNotes = searchQuery
+  ? notes.filter(note =>
+      note.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  : notes;
 
   return (
     <div className="App">
@@ -170,19 +144,20 @@ function App() {
           <h1 style={AppStyle.title}>QuirkNotes</h1>
           <h4 style={AppStyle.text}>The best note-taking app ever </h4>
 
+          <NoteSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
           <div style={AppStyle.notesSection}>
             {loading ?
             <>Loading...</>
             : 
-            notes ?
-            notes.map((entry) => {
+            filteredNotes ?
+            filteredNotes.map((entry) => {
               return (
               <div key={entry._id}>
                 <Note
                 entry={entry} 
                 editNote={editNote} 
                 deleteNote={deleteNote}
-                onChangeColor={onChangeColor}
                 />
               </div>
               )
@@ -238,3 +213,4 @@ const AppStyle = {
     margin: "0px"
   }
 }
+
