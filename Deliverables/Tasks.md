@@ -17,8 +17,8 @@
 
 ## Jasjot Benipal (person 6):
 - [x] Create a pull resquest template (worked with person 5)
-- [ ] Create a PR for feat/C_SearchNotes -> devel
-- [ ] Merge branches
+- [x] Create a PR for feat/C_SearchNotes -> devel
+- [x] Merge branches
 
 ## Yann Gbaguidi (person 1):
 - [x] Create a branch off devel called feat/A_ColorCoding
@@ -32,7 +32,7 @@
 - [x] create and commit bugfix.txt
 
 ## As a Team: 
-- [ ] Clean up repo / Make sure code is working
+- [x] Clean up repo / Make sure code is working
 - [x] Approve PR feat/A_ColorCoding -> devel
-- [ ] Approve PR feat/C_SearchNotes -> devel
+- [x] Approve PR feat/C_SearchNotes -> devel
 - [x] Git workflow diagram
