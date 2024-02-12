@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import './App.css';
 import Dialog from "./Dialog";
 import Note from "./Note";
+import NoteSearch from "./NoteSearch";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
   // -- Dialog props-- 
   const [dialogOpen, setDialogOpen] = useState(false)
   const [dialogNote, setDialogNote] = useState(null)
-
+  const [searchQuery, setSearchQuery] = useState("");
   
   // -- Database interaction functions --
   useEffect(() => {
@@ -136,6 +137,12 @@ function App() {
     }))
   }
 
+  const filteredNotes = searchQuery
+  ? notes.filter(note =>
+      note.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  : notes;
+
   
   const onChangeColor = async (noteId, color) => {
     try {
@@ -161,8 +168,6 @@ function App() {
     }
   };
 
-
-
   return (
     <div className="App">
       <header className="App-header">
@@ -170,12 +175,14 @@ function App() {
           <h1 style={AppStyle.title}>QuirkNotes</h1>
           <h4 style={AppStyle.text}>The best note-taking app ever </h4>
 
+          <NoteSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
           <div style={AppStyle.notesSection}>
             {loading ?
             <>Loading...</>
             : 
-            notes ?
-            notes.map((entry) => {
+            filteredNotes ?
+            filteredNotes.map((entry) => {
               return (
               <div key={entry._id}>
                 <Note
@@ -238,3 +245,4 @@ const AppStyle = {
     margin: "0px"
   }
 }
+
